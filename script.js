@@ -35,6 +35,7 @@ video.addEventListener('ended', showPlayIcon)
 
 
 // Progress Bar ---------------------------------- //
+
 // Calculate display time format
 
 function displayTime(time){
@@ -48,7 +49,7 @@ function displayTime(time){
 
 function updateProgress(){
     progressBar.style.width = `${(video.currentTime/video.duration) * 100}%`;
-    currentTime.textContent = `${displayTime(video.currentTime)}/`;
+    currentTime.textContent = `${displayTime(video.currentTime)} /`;
     duration.textContent = `${displayTime(video.duration)}`;
 }
 // Click to seek within the video
@@ -57,7 +58,6 @@ function setProgress(e){
     const newTime  =  e.offsetX / progressRange.offsetWidth;
     progressBar.style.width = `${newTime * 100}%`;
     video.currentTime = newTime * video.duration;
-    console.log(newTime , video.currentTime);
 }
 
 
@@ -116,12 +116,7 @@ else if(volume === 0 ){
 // Change Playback Speed -------------------- //
 function changeSpeed (){
     video.playbackRate = speed.value;
-
-
 }
-
-
-
 
 // Fullscreen ------------------------------- //
 
@@ -159,7 +154,6 @@ function toggleFullscreen(){
     else{
         closeFullscreen();
     }
-    console.log('james');
     fullscreen = !fullscreen;
 }
 
